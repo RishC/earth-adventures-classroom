@@ -1,0 +1,9 @@
+<h2>Courses</h2>
+<ul class="courses">
+  <li *ngFor="let course of courses$ | async"
+    [class.selected]="course.id === selectedId">
+    <a [routerLink]="['/course', course.id]">
+      <span class="badge">{{ course.courseNumber }}</span>{{course.name }}
+    </a>
+  </li>
+</ul>

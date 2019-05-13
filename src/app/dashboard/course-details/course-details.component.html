@@ -1,0 +1,10 @@
+<h2>Courses</h2>
+<div *ngIf="course$ | async as course">
+  <h3>"{{ course.name }}"</h3>
+  <div>
+    <label>Id: </label>{{ course.id }}</div>
+ 
+  <p>
+    <button (click)="gotoCourses(course)">Back</button>
+  </p>
+</div>
