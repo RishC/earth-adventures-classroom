@@ -1,0 +1,27 @@
+language: node_js
+node_js:
+  - "10"
+dist: trusty
+sudo: false
+
+branches:
+  only:
+  - master
+
+cache:
+  directories:
+    - node_modules
+
+install:
+  - npm install
+
+script:
+  - npm run build:prod
+  - mv dist/earth-adventures-classroom/index.html dist/earth-adventures-classroom/404.html
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: dist/earth-adventures-classroom
+  on:
+    branch: master
