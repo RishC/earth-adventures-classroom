@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs';
 
-import { CourseService }  from '../course.service';
-import { Course } from '../course';
+import { CourseService } from '../course.service';
+import { Course } from '../../core/data/course';
 
 @Component({
   selector: 'app-course-details',
@@ -18,7 +18,7 @@ export class CourseDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private service: CourseService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.course$ = this.route.paramMap.pipe(
@@ -29,7 +29,7 @@ export class CourseDetailsComponent implements OnInit {
 
   gotoCourses(course: Course) {
     let courseId = course ? course.id : null;
-   
-    this.router.navigate(['/dashboard', { id: courseId, foo: 'foo' }]);
+
+    this.router.navigate(['/dashboard']);
   }
 }

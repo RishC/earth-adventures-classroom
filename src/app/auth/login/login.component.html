@@ -1,16 +1,16 @@
-<p>
-  <div id="login' class="container" style="width: 50%;">
-    <form>
-      <div class="form-group">
-        <label for="inputEmail">Email address</label>
-        <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email">
-      </div>
-      <div class="form-group">
-        <label for="inputPassword">Password</label>
-        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-      </div>
-      <button type="submit" class="btn btn-primary" style="margin-right:0.25em;">Submit</button>
-      <!-- <button type="submit" class="btn btn-primary" style="margin-left:0.25em;">Register</button> -->
-    </form>
-  </div>
-</p>
+<div id="login" class="container" style="width: 50%;">
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="inputEmail">Username</label>
+      <input type="email" class="form-control" id="inputEmail" placeholder="Enter username"
+        formControlName="username">
+    </div>
+    <div class="form-group">
+      <label for="inputPassword">Password</label>
+      <input type="password" class="form-control" id="inputPassword" placeholder="Password" formControlName="password">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <div style="color:red">{{errorMessage}}</div>
+</div>
