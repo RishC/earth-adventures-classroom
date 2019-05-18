@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 
 import { CourseService } from '../course.service';
 import { Course } from '../../core/data/course';
+import { User } from '../../core/data/user';
+import { UserService } from '../../core/services/user.service';
 
 @Component({
   selector: 'app-course-details',
@@ -17,7 +19,8 @@ export class CourseDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private service: CourseService
+    private service: CourseService,
+    private userservice: UserService
   ) { }
 
   ngOnInit() {
@@ -29,7 +32,10 @@ export class CourseDetailsComponent implements OnInit {
 
   gotoCourses(course: Course) {
     let courseId = course ? course.id : null;
-
-    this.router.navigate(['/dashboard']);
+    if(this.userservice.getUser().username === 'teacher'){
+      this.router.navigate(['/dashboard/teacher']);
+    }else{
+     this.router.navigate(['/dashboard']);
+    }
   }
 }

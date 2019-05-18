@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from './../core/services/user.service';
 
 
 @Component({
@@ -8,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToolbarComponent implements OnInit {
 
-  constructor() { }
+  isTeacher = false;
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.userService.isTeacher.subscribe(isTeacher => this.isTeacher = isTeacher);
   }
 
 }
