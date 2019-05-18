@@ -25,4 +25,8 @@ export class CourseService {
       map((courses: Course[]) => courses.find(course => course.id === +id))
     );
   }
+
+  addCourse(course: Course){
+   this.userService.currentUserSubject.getValue().courses.push(course);
+  }
 }

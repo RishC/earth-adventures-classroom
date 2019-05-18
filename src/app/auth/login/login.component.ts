@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -28,7 +28,13 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     let result = this.authService.login(this.loginForm.value);
     if (result.success) {
-      this.router.navigate(['/dashboard']);
+      if(this.loginForm.value['username'] === 'teacher'){
+          this.router.navigate(['/dashboard/teacher']);
+      }
+      else{
+        this.router.navigate(['/dashboard']);
+      }
+      
     } else {
       this.errorMessage = result.message;
     }

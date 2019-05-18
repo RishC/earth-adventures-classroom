@@ -3,7 +3,8 @@
       <!-- NAVBAR -->
       <nav id="navbar-scrolling" class="align-self-center">
         <ul class="nav nav-fill nav-pills justify-content-center">
-          <li class="nav-item"><a class="nav-link" routerLink='/dashboard' routerLinkActive="active">Dashboard</a></li>
+          <li class="nav-item" *ngIf="isTeacher"><a class="nav-link" routerLink='/dashboard/teacher' routerLinkActive="active">Dashboard</a></li>
+           <li class="nav-item" *ngIf="!isTeacher"><a class="nav-link" routerLink='/dashboard' routerLinkActive="active">Dashboard</a></li>
           <li class="nav-item"><a class="nav-link" href="">Grades</a></li>
           <li class="nav-item"><a class="nav-link" href="">Calendar</a></li>
           <li class="nav-item"><a class="nav-link" href="">Logout</a></li>
