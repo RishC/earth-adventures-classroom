@@ -1,18 +1,23 @@
 import { Injectable } from '@angular/core';
 import { USERS } from '../data/users';
 import { UserService } from './user.service';
+import { LocalStorageService } from './local-storage.service';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private userService: UserService) { }
+  constructor(
+    private userService: UserService,
+    private localStorageService: LocalStorageService
+  ) { }
 
   login(credentials) {
-    let user = USERS.find(user => user.username === credentials.username);
+    const user = USERS.find(user => user.username === credentials.username);
     if (user) {
       if (user.password === credentials.password) {
         this.userService.setUser(user);
+        this.localStorageService.saveUserId(user.id);
         return {
           success: true
         };
@@ -29,4 +34,16 @@ export class AuthService {
       message: 'Username not found'
     };
   }
+
+  checkIfSessionExists() {
+    if (this.localStorageService.getUserId()) {
+      const user = USERS.find(user => user.id === +this.localStorageService.getUserId());
+      if (user) {
+        this.userService.setUser(user);
+      } else {
+        this.userService.deleteUser();
+      }
+    }
+  }
+
 }
