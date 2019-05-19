@@ -16,14 +16,17 @@ import { UserService } from '../../core/services/user.service';
 export class CourseDetailsComponent implements OnInit {
   course$: Observable<Course>;
 
+  isTeacher = false;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private service: CourseService,
-    private userservice: UserService
+    private userService: UserService
   ) { }
 
   ngOnInit() {
+    this.userService.isTeacher.subscribe(isTeacher => this.isTeacher = isTeacher);
     this.course$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
         this.service.getCourse(params.get('id')))
@@ -32,7 +35,7 @@ export class CourseDetailsComponent implements OnInit {
 
   gotoCourses(course: Course) {
     let courseId = course ? course.id : null;
-    if(this.userservice.getUser().username === 'teacher'){
+    if(this.userService.getUser().username == 'teacher'){
       this.router.navigate(['/dashboard/teacher']);
     }else{
      this.router.navigate(['/dashboard']);

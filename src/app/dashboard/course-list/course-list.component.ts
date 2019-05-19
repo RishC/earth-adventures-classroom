@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { CourseService } from '../course.service';
 import { Course } from '../../core/data/course';
+import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
   selector: 'app-course-list',
@@ -21,7 +22,7 @@ export class CourseListComponent implements OnInit {
     private route: ActivatedRoute
   ) { }
 
-  ngOnInit() {
+  ngOnInit() {   
     this.courses$ = this.route.paramMap.pipe(
       switchMap(params => {
 

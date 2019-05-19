@@ -5,10 +5,14 @@
       <h6>Course Description:</h6>
       <!-- <label>Id: </label>{{ course.id }}</div> --> <!-- Do we need to show this? -->
       <p>{{ course.description }}</p>
-      <div><a  class="btn btn-primary" routerLink='/dashboard/teacher/' routerLinkActive="active">Course Content</a></div>
-      <div><a  class="btn btn-primary" routerLink='/dashboard/teacher/' routerLinkActive="active">Assignment</a></div>
-      <div><a  class="btn btn-primary" routerLink='/dashboard/teacher/' routerLinkActive="active">Garde</a></div>     
-      <div><a  class="btn btn-primary" routerLink='/dashboard/teacher/' routerLinkActive="active">Enrolled Students</a></div>
+      <div *ngIf="isTeacher"><a  class="btn btn-primary" routerLink='/dashboard/teacher/' routerLinkActive="active">Course Content</a></div>
+      <div *ngIf="!isTeacher"><a  class="btn btn-primary" routerLink='/dashboard' routerLinkActive="active">Course Content</a></div>
+      <div *ngIf="isTeacher"><a  class="btn btn-primary" routerLink='/dashboard/teacher/' routerLinkActive="active">Assignment</a></div>
+      <div *ngIf="!isTeacher"><a  class="btn btn-primary" routerLink='/dashboard' routerLinkActive="active">Assignment</a></div>
+      <div *ngIf="isTeacher"><a  class="btn btn-primary" routerLink='/dashboard/teacher/' routerLinkActive="active">Grade</a></div>
+      <div *ngIf="!isTeacher"><a  class="btn btn-primary" routerLink='/dashboard' routerLinkActive="active">Grade</a></div>     
+      <div *ngIf="isTeacher"><a  class="btn btn-primary" routerLink='/dashboard/teacher/' routerLinkActive="active">Enrolled Students</a></div>
+      <div *ngIf="!isTeacher"><a  class="btn btn-primary" routerLink='/dashboard' routerLinkActive="active">Enrolled Students</a></div>
       <div class="page-div"></div>
       <button (click)="gotoCourses(course)">Back</button>
   </div>
