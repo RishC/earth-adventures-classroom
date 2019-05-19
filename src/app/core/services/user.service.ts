@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, ReplaySubject } from 'rxjs';
-import { distinctUntilChanged } from 'rxjs/operators';
+import { distinctUntilChanged, take } from 'rxjs/operators';
 import { User } from '../data/user';
 
 @Injectable({
@@ -11,11 +11,11 @@ export class UserService {
   public currentUserSubject = new BehaviorSubject<User>({} as User);
   public currentUser = this.currentUserSubject.asObservable().pipe(distinctUntilChanged());
 
-  public isAuthenticatedSubject = new ReplaySubject<boolean>(1);
+  public isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
   public isAuthenticated = this.isAuthenticatedSubject.asObservable();
 
   public isTeacherSubject = new ReplaySubject<boolean>(1);
-  public isTeacher =  this.isTeacherSubject.asObservable();
+  public isTeacher = this.isTeacherSubject.asObservable();
 
   constructor() { }
 
@@ -24,12 +24,21 @@ export class UserService {
       this.currentUserSubject.next(user);
       this.isAuthenticatedSubject.next(true);
 
-      if(user.username==='teacher'){
+      if (user.username === 'teacher') {
         this.isTeacherSubject.next(true);
       }
     }
   }
-  getUser(){
-   return this.currentUserSubject.value;
+  getUser() {
+    return this.currentUserSubject.value;
+  }
+
+  getAuthStatus() {
+    return this.isAuthenticated.pipe(take(1));
+  }
+
+  deleteUser() {
+    this.currentUserSubject.next(null);
+    this.isAuthenticatedSubject.next(false);
   }
 }
