@@ -9,14 +9,18 @@ import { take, map } from 'rxjs/operators';
 })
 export class NoAuthGuard implements CanActivate, CanActivateChild, CanLoad {
 
-  
+
   constructor(private userService: UserService, private router: Router) { }
 
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    const user = this.userService.currentUserSubject.getValue();
     const isAuthenticated = this.userService.isAuthenticatedSubject.getValue();
     if (isAuthenticated) {
+      if (user.type === 'teacher') {
+        return this.router.parseUrl('/dashboard/teacher');
+      }
       return this.router.parseUrl('/dashboard');
     } else {
       return true;
