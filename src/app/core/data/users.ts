@@ -4,6 +4,7 @@ export const USERS: User[] = [
         id: 1,
         username: 'student',
         password: '123',
+        type: 'student',
         courses: [
             {
                 id: 1,
@@ -23,6 +24,7 @@ export const USERS: User[] = [
         id: 2,
         username: 'teacher',
         password: '123',
+        type: 'teacher',
         courses: [
             {
                 id: 1,

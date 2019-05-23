@@ -26,7 +26,7 @@ export class CourseDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.userService.isTeacher.subscribe(isTeacher => this.isTeacher = isTeacher);
+    this.userService.currentUser.subscribe(user => this.isTeacher = user.type === 'teacher');
     this.course$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
         this.service.getCourse(params.get('id')))
@@ -35,10 +35,10 @@ export class CourseDetailsComponent implements OnInit {
 
   gotoCourses(course: Course) {
     let courseId = course ? course.id : null;
-    if(this.userService.getUser().username == 'teacher'){
+    if (this.userService.getUser().username == 'teacher') {
       this.router.navigate(['/dashboard/teacher']);
-    }else{
-     this.router.navigate(['/dashboard']);
+    } else {
+      this.router.navigate(['/dashboard']);
     }
   }
 }

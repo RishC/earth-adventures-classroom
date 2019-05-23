@@ -14,19 +14,12 @@ export class UserService {
   public isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
   public isAuthenticated = this.isAuthenticatedSubject.asObservable();
 
-  public isTeacherSubject = new ReplaySubject<boolean>(1);
-  public isTeacher = this.isTeacherSubject.asObservable();
-
   constructor() { }
 
   setUser(user) {
     if (user) {
       this.currentUserSubject.next(user);
       this.isAuthenticatedSubject.next(true);
-
-      if (user.username === 'teacher') {
-        this.isTeacherSubject.next(true);
-      }
     }
   }
   getUser() {

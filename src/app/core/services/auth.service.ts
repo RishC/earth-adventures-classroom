@@ -19,7 +19,8 @@ export class AuthService {
         this.userService.setUser(user);
         this.localStorageService.saveUserId(user.id);
         return {
-          success: true
+          success: true,
+          user
         };
       } else {
         return {
@@ -45,9 +46,8 @@ export class AuthService {
       }
     }
   }
-   logout() {
-        //this.userService.setUser(null);
-		this.userService.deleteUser();
-		this.localStorageService.destroyUserId();
-    }
+  logout() {
+    this.userService.deleteUser();
+    this.localStorageService.destroyUserId();
+  }
 }

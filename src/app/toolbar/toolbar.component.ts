@@ -13,15 +13,15 @@ export class ToolbarComponent implements OnInit {
 
   isTeacher = false;
   constructor(private userService: UserService,
-              private authService: AuthService,
-			  private router: Router) { }
+    private authService: AuthService,
+    private router: Router) { }
 
   ngOnInit() {
-    this.userService.isTeacher.subscribe(isTeacher => this.isTeacher = isTeacher);
+    this.userService.currentUser.subscribe(user => this.isTeacher = user.type === 'teacher');
   }
-  
-   logout() {
-        this.authService.logout();
-		this.router.navigate(['/loginPage']);
-}
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
+  }
 }
