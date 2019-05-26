@@ -13,6 +13,7 @@
       <div *ngIf="!isTeacher"><a  class="btn btn-primary" routerLink='/dashboard' routerLinkActive="active">Grade</a></div>     
       <div *ngIf="isTeacher"><a  class="btn btn-primary" routerLink='/dashboard/teacher/' routerLinkActive="active">Enrolled Students</a></div>
       <div *ngIf="!isTeacher"><a  class="btn btn-primary" routerLink='/dashboard' routerLinkActive="active">Enrolled Students</a></div>
+      <div *ngIf="isTeacher"><button  class="btn btn-primary" (click)="deleteCourse(course.id)">Delete This Course</button></div>
       <div class="page-div"></div>
       <button (click)="gotoCourses(course)">Back</button>
   </div>

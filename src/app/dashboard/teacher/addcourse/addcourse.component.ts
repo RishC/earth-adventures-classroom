@@ -4,6 +4,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CourseService } from '../../course.service';
 import { Course } from 'src/app/core/data/course';
 import { Router } from '@angular/router';
+import { map } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-addcourse',
@@ -28,9 +30,16 @@ export class AddCourseComponent implements OnInit{
   }
 
   onSubmit() {
+    const courses = this.courseService.getCourses();
+    var count = 0;
+
+    courses.subscribe(val => count = val.length);
+    
     let course = new Course();
+    course.id = count + 1;
     course.courseNumber = this.addCourseForm.value["courseNumber"];
     course.name = this.addCourseForm.value["courseName"];
+    course.description = this.addCourseForm.value["courseDescription"];
     this.courseService.addCourse(course);
     this.router.navigate(['/dashboard/teacher']);
   }

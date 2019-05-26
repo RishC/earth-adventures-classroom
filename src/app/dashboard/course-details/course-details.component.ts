@@ -41,4 +41,13 @@ export class CourseDetailsComponent implements OnInit {
       this.router.navigate(['/dashboard']);
     }
   }
+
+  deleteCourse(id: number){
+   var index = this.userService.currentUserSubject.getValue().courses.findIndex(item => item.id === id);
+   this.userService.currentUserSubject.getValue().courses.splice(index, 1);
+   this.router.navigate(['/dashboard/teacher']);
+  }
+
+
+
 }
