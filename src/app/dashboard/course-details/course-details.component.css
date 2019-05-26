@@ -2,8 +2,12 @@ div {
   padding-top: 5px;
 }
 
-div a{
-  width:300px;
-  height:40px;
-  align-content: center;
+#course-title {
+  text-align: center;
+}
+
+.page-div {
+  border-bottom-width: 4px;
+  border-bottom-style: solid;
+  border-bottom-color: white;
 }
