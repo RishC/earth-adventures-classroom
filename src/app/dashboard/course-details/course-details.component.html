@@ -2,9 +2,6 @@
   <div *ngIf="course$ | async as course">
     <h3 id="course-title">{{ course.name }}</h3>
     <br>
-    <!-- <h6>Course Description:</h6>
-    <p>{{ course.description }}</p>
-    <br> -->
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
       <ul class="navbar-nav nav-pills nav-fill w-100">
         <li class="nav-item active" *ngIf="isTeacher"><a class="nav-link" routerLink='./'>Home</a></li>
@@ -20,5 +17,8 @@
       </ul>
     </nav>
     <div class="page-div"></div>
+    <br>
+    <h6>Course Description:</h6>
+    <p>{{ course.description }}</p>
   </div>
 </div>
