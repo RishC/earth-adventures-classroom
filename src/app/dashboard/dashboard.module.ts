@@ -8,7 +8,7 @@ import { CourseDetailsComponent }  from './course-details/course-details.compone
 import { TeacherComponent }  from './teacher/teacher.component';
 import { AddCourseComponent } from './teacher/addcourse/addcourse.component';
 import { DashboardRoutingModule } from './dashboard-route.module';
-import {CourseContentComponent} from './teacher/course-content/course-content.component';
+import { CourseContentComponent } from './teacher/course-content/course-content.component';
 
 @NgModule({
   imports: [
@@ -21,7 +21,8 @@ import {CourseContentComponent} from './teacher/course-content/course-content.co
     CourseListComponent,
     CourseDetailsComponent,
     TeacherComponent,
-    AddCourseComponent
+    AddCourseComponent,
+	CourseContentComponent
   ]
 })
 export class DashboardModule {}

@@ -1,34 +1,35 @@
-
-import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Observable } from 'rxjs';
 
 import { CourseService } from '../../course.service';
+import { UserService } from '../../../core/services/user.service';
 import { Course } from '../../../core/data/course';
-import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
-  selector: 'app-course-list',
+  selector: 'app-course-content',
   templateUrl: './course-content.component.html',
-  styleUrls: ['./course-content.component.css']
+  styleUrls: ['./course-content.component.css'],
 })
 export class CourseContentComponent implements OnInit {
-  courses$: Observable<Course[]>;
-  selectedId: number;
+	course$: Observable<Course>;
+	
+	isTeacher = false;
 
   constructor(
+    private route: ActivatedRoute,
+	private router: Router,
     private service: CourseService,
-    private route: ActivatedRoute
-  ) { }
+    private userService: UserService
+  ) {}
 
-  ngOnInit() {   
-    //this.courses$ = this.route.paramMap.pipe(
-      //switchMap(params => {
-
-        //this.selectedId = +params.get('id');
-        //return this.service.getCourses();
-      //})
-    //);
+  ngOnInit() {
+	  this.userService.currentUser.subscribe(user => this.isTeacher = user.type === 'teacher');
+	  this.course$ = this.route.paramMap.pipe(
+      switchMap((params: ParamMap) =>
+        this.service.getCourse(params.get('id')))
+    );
   }
+
 }

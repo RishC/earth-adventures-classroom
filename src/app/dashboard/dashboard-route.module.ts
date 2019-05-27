@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { CourseListComponent } from './course-list/course-list.component';
 import { CourseContentComponent } from './teacher/course-content/course-content.component';
+import { DashboardComponent } from './dashboard.component';
 import { CourseDetailsComponent } from './course-details/course-details.component';
 import { TeacherComponent } from './teacher/teacher.component';
 import { AddCourseComponent } from './teacher/addcourse/addcourse.component';
@@ -17,7 +18,7 @@ const dashboardRoutes: Routes = [
   { path: 'courses/:id', component: CourseDetailsComponent, canActivate: [AuthGuard] },
   { path: 'dashboard/teacher', component: TeacherComponent, canActivate: [AuthGuard, TeacherGuard] },
   { path: 'dashboard/teacher/addcourse', component: AddCourseComponent, canActivate: [AuthGuard, TeacherGuard] },
-  //{ path: 'dashboard/teacher/coursecontent', component: CourseContentComponent, canActivate: [AuthGuard, TeacherGuard] }
+  { path: 'coursecontent', component: CourseContentComponent, canActivate: [AuthGuard, TeacherGuard] },
 
 ];
 
