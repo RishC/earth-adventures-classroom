@@ -18,7 +18,7 @@ const dashboardRoutes: Routes = [
   { path: 'courses/:id', component: CourseDetailsComponent, canActivate: [AuthGuard] },
   { path: 'dashboard/teacher', component: TeacherComponent, canActivate: [AuthGuard, TeacherGuard] },
   { path: 'dashboard/teacher/addcourse', component: AddCourseComponent, canActivate: [AuthGuard, TeacherGuard] },
-  { path: 'coursecontent', component: CourseContentComponent, canActivate: [AuthGuard, TeacherGuard] },
+  { path: 'coursecontent/:id', component: CourseContentComponent, canActivate: [AuthGuard] },
 
 ];
 

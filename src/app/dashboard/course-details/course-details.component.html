@@ -5,8 +5,8 @@
       <h6>Course Description:</h6>
       <!-- <label>Id: </label>{{ course.id }}</div> --> <!-- Do we need to show this? -->
       <p>{{ course.description }}</p>
-	  <div *ngIf="isTeacher"><a  class="btn btn-primary" routerLink='/coursecontent' routerLinkActive="active">Course Content</a></div>
-	  <div *ngIf="!isTeacher"><a  class="btn btn-primary" routerLink='/coursecontent' routerLinkActive="active">Course Content</a></div>
+	  <div *ngIf="isTeacher"><a  class="btn btn-primary" [routerLink]="['/coursecontent', course.id]" routerLinkActive="active">Course Content</a></div>
+	  <div *ngIf="!isTeacher"><a  class="btn btn-primary" [routerLink]="['/coursecontent', course.id]" routerLinkActive="active">Course Content</a></div>
       <div *ngIf="isTeacher"><a  class="btn btn-primary" routerLink='/dashboard/teacher/' routerLinkActive="active">Assignment</a></div>
       <div *ngIf="!isTeacher"><a  class="btn btn-primary" routerLink='/dashboard' routerLinkActive="active">Assignment</a></div>
       <div *ngIf="isTeacher"><a  class="btn btn-primary" routerLink='/dashboard/teacher/' routerLinkActive="active">Grade</a></div>

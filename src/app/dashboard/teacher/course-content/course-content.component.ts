@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 
 import { CourseService } from '../../course.service';
 import { UserService } from '../../../core/services/user.service';
+import { User } from '../../core/data/user';
 import { Course } from '../../../core/data/course';
 
 @Component({
@@ -15,8 +16,6 @@ import { Course } from '../../../core/data/course';
 export class CourseContentComponent implements OnInit {
 	course$: Observable<Course>;
 	
-	isTeacher = false;
-
   constructor(
     private route: ActivatedRoute,
 	private router: Router,
@@ -25,7 +24,6 @@ export class CourseContentComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-	  this.userService.currentUser.subscribe(user => this.isTeacher = user.type === 'teacher');
 	  this.course$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
         this.service.getCourse(params.get('id')))
