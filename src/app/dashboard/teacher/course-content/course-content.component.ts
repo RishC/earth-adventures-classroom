@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 
 import { CourseService } from '../../course.service';
 import { UserService } from '../../../core/services/user.service';
-import { User } from '../../core/data/user';
+import { User } from '../../../core/data/user';
 import { Course } from '../../../core/data/course';
 
 @Component({
