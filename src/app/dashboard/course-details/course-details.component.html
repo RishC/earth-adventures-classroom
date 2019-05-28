@@ -14,11 +14,13 @@
         <li class="nav-item" *ngIf="!isTeacher"><a class="nav-link" routerLink='/dashboard'>Grades</a></li>
         <li class="nav-item" *ngIf="isTeacher"><a class="nav-link" routerLink='/dashboard/teacher'>Enrolled Students</a></li>
         <li class="nav-item" *ngIf="!isTeacher"><a class="nav-link" routerLink='/dashboard'>Enrolled Students</a></li>
+
       </ul>
     </nav>
     <div class="page-div"></div>
     <br>
     <h6>Course Description:</h6>
     <p>{{ course.description }}</p>
+    <div id="deleteCourseBtn" *ngIf="isTeacher"><button  class="btn btn-danger" (click)="deleteCourse(course.id)">Delete This Course</button></div>
   </div>
 </div>

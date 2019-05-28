@@ -14,7 +14,6 @@ import { Course } from '../core/data/course';
 })
 export class ToolbarComponent implements OnInit {
   courses$: Observable<Course[]>;
-  selectedId: number;
   isTeacher = false;
 
   constructor(private userService: UserService,
@@ -27,7 +26,6 @@ export class ToolbarComponent implements OnInit {
     this.userService.currentUser.subscribe(user => this.isTeacher = user.type === 'teacher');
     this.courses$ = this.route.paramMap.pipe(
       switchMap(params => {
-        this.selectedId = +params.get('id');
         return this.courseService.getCourses();
       })
     );

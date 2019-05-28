@@ -11,3 +11,7 @@ div {
   border-bottom-style: solid;
   border-bottom-color: white;
 }
+
+#deleteCourseBtn {
+  text-align: center;
+}
