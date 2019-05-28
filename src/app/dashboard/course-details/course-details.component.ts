@@ -43,11 +43,17 @@ export class CourseDetailsComponent implements OnInit {
   }
 
   deleteCourse(id: number){
+<<<<<<< HEAD
    if (confirm("Are you sure you want to delete this course, all of its associated data will be lost?")){
      var index = this.userService.currentUserSubject.getValue().courses.findIndex(item => item.id === id);
      this.userService.currentUserSubject.getValue().courses.splice(index, 1);
      this.router.navigate(['/dashboard/teacher']);
    }
+=======
+   var index = this.userService.currentUserSubject.getValue().courses.findIndex(item => item.id === id);
+   this.userService.currentUserSubject.getValue().courses.splice(index, 1);
+   this.router.navigate(['/dashboard/teacher']);
+>>>>>>> 21b21c8982c979023c5f0183b6e47b43cb0d48c9
   }
 
 }
