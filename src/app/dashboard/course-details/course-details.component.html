@@ -6,8 +6,8 @@
       <ul class="navbar-nav nav-pills nav-fill w-100">
         <li class="nav-item active" *ngIf="isTeacher"><a class="nav-link" routerLink='./'>Home</a></li>
         <li class="nav-item active" *ngIf="!isTeacher"><a class="nav-link" routerLink='./'>Home</a></li>
-        <li class="nav-item" *ngIf="isTeacher"><a class="nav-link" routerLink='/dashboard/teacher'>Course Content</a></li>
-        <li class="nav-item" *ngIf="!isTeacher"><a class="nav-link" routerLink='/dashboard'>Course Content</a></li>
+        <li class="nav-item" *ngIf="isTeacher"><a class="nav-link" [routerLink]="['/coursecontent',course.id]">Course Content</a></li>
+        <li class="nav-item" *ngIf="!isTeacher"><a class="nav-link" [routerLink]="['/coursecontent',course.id]">Course Content</a></li>
         <li class="nav-item" *ngIf="isTeacher"><a class="nav-link" routerLink='/dashboard/teacher'>Assignments</a></li>
         <li class="nav-item" *ngIf="!isTeacher"><a class="nav-link" routerLink='/dashboard'>Assignments</a></li>
         <li class="nav-item" *ngIf="isTeacher"><a class="nav-link" routerLink='/dashboard/teacher'>Grades</a></li>
