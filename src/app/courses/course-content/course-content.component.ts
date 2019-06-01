@@ -3,10 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs';
 
-import { CourseService } from '../../course.service';
-import { UserService } from '../../../core/services/user.service';
-import { User } from '../../../core/data/user';
-import { Course } from '../../../core/data/course';
+import { CoursesService } from '../courses.service';
+import { Course } from '../../core/data/course';
 
 @Component({
   selector: 'app-course-content',
@@ -18,13 +16,11 @@ export class CourseContentComponent implements OnInit {
 	
   constructor(
     private route: ActivatedRoute,
-	private router: Router,
-    private service: CourseService,
-    private userService: UserService
+    private service: CoursesService,
   ) {}
 
   ngOnInit() {
-	  this.course$ = this.route.paramMap.pipe(
+	  this.course$ = this.route.parent.paramMap.pipe(
       switchMap((params: ParamMap) =>
         this.service.getCourse(params.get('id')))
     );

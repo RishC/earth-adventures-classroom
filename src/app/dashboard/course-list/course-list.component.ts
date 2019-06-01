@@ -4,7 +4,7 @@ import { switchMap } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { CourseService } from '../course.service';
+import { CoursesService } from '../../courses/courses.service';
 import { Course } from '../../core/data/course';
 import { UserService } from 'src/app/core/services/user.service';
 
@@ -18,7 +18,7 @@ export class CourseListComponent implements OnInit {
   selectedId: number;
 
   constructor(
-    private service: CourseService,
+    private service: CoursesService,
     private route: ActivatedRoute
   ) { }
 

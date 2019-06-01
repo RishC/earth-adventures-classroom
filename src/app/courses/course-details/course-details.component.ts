@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs';
 
-import { CourseService } from '../course.service';
+import { CoursesService } from '../courses.service';
 import { Course } from '../../core/data/course';
 import { User } from '../../core/data/user';
 import { UserService } from '../../core/services/user.service';
@@ -21,32 +21,23 @@ export class CourseDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private service: CourseService,
+    private service: CoursesService,
     private userService: UserService
   ) { }
 
   ngOnInit() {
-    this.userService.currentUser.subscribe(user => this.isTeacher = user.type === 'teacher');
-    this.course$ = this.route.paramMap.pipe(
+    this.isTeacher = this.userService.currentUserSubject.getValue().type === 'teacher';
+    this.course$ = this.route.parent.paramMap.pipe(
       switchMap((params: ParamMap) =>
         this.service.getCourse(params.get('id')))
     );
-  }
-
-  gotoCourses(course: Course) {
-    let courseId = course ? course.id : null;
-    if (this.userService.getUser().username == 'teacher') {
-      this.router.navigate(['/dashboard/teacher']);
-    } else {
-      this.router.navigate(['/dashboard']);
-    }
   }
 
   deleteCourse(id: number){
    if (confirm("Are you sure you want to delete this course, all of its associated data will be lost?")){
      var index = this.userService.currentUserSubject.getValue().courses.findIndex(item => item.id === id);
      this.userService.currentUserSubject.getValue().courses.splice(index, 1);
-     this.router.navigate(['/dashboard/teacher']);
+     this.router.navigate(['/dashboard']);
    }
   }
 
