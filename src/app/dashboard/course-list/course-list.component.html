@@ -3,7 +3,7 @@
   <h5>Currently Enrolled Courses:</h5>
   <div *ngFor="let course of courses$ | async"
     [class.selected]="course.id === selectedId">
-    <div [routerLink]="['/course', course.id]">
+    <div [routerLink]="['/courses', course.id]">
       <div class="card btn btn-primary">
         <div class="card-body">
           <h5 class="card-title badge">{{ course.courseNumber }}:</h5>{{course.name }}

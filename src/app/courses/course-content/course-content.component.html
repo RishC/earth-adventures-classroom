@@ -1,0 +1,10 @@
+<div class="container">
+  <!-- need so toolbar isn't on top of anything -->
+  <div *ngIf="course$ | async as course">
+    <h5 id="course-title">Welcome to {{ course.name }}</h5>
+    <h6>Course Content:</h6>
+    <div class="course-content">
+      <p>Class 1 : {{ course.content }}</p>
+    </div>
+  </div>
+</div>

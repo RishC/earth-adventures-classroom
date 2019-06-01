@@ -4,11 +4,8 @@ import { FormsModule }    from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { CourseListComponent }    from './course-list/course-list.component';
-import { CourseDetailsComponent }  from './course-details/course-details.component';
-import { TeacherComponent }  from './teacher/teacher.component';
-import { AddCourseComponent } from './teacher/addcourse/addcourse.component';
 import { DashboardRoutingModule } from './dashboard-route.module';
-import { CourseContentComponent } from './teacher/course-content/course-content.component';
+import { DashboardComponent } from './dashboard.component';
 
 @NgModule({
   imports: [
@@ -19,10 +16,7 @@ import { CourseContentComponent } from './teacher/course-content/course-content.
   ],
   declarations: [
     CourseListComponent,
-    CourseDetailsComponent,
-    TeacherComponent,
-    AddCourseComponent,
-	CourseContentComponent
+    DashboardComponent
   ]
 })
 export class DashboardModule {}

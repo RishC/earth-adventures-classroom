@@ -10,7 +10,7 @@ import { UserService } from '../core/services/user.service';
 @Injectable({
   providedIn: 'root',
 })
-export class CourseService {
+export class CoursesService {
 
   constructor(private userService: UserService) { }
 

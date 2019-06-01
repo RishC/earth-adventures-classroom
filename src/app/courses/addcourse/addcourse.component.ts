@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CourseService } from '../../course.service';
+import { CoursesService } from '../courses.service';
 import { Course } from 'src/app/core/data/course';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
@@ -22,7 +22,7 @@ export class AddCourseComponent implements OnInit{
 
   constructor(
     private fb: FormBuilder,
-    private courseService: CourseService,
+    private courseService: CoursesService,
     private router: Router
   ) {}
 
@@ -41,7 +41,7 @@ export class AddCourseComponent implements OnInit{
     course.name = this.addCourseForm.value["courseName"];
     course.description = this.addCourseForm.value["courseDescription"];
     this.courseService.addCourse(course);
-    this.router.navigate(['/dashboard/teacher']);
+    this.router.navigate(['/dashboard']);
   }
 
 }

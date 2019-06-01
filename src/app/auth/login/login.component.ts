@@ -28,11 +28,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     const result = this.authService.login(this.loginForm.value);
     if (result.success) {
-      if (result.user.type === 'teacher') {
-        this.router.navigate(['/dashboard/teacher']);
-      } else {
-        this.router.navigate(['/dashboard']);
-      }
+      this.router.navigate(['/dashboard']);
     } else {
       this.errorMessage = result.message;
     }

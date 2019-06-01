@@ -17,7 +17,7 @@ export class StudentGuard implements CanActivate, CanActivateChild, CanLoad {
         if (user.type === 'student') {
             return true;
         } else {
-            return this.router.parseUrl('/dashboard/teacher');
+            return this.router.parseUrl('/dashboard');
         }
     }
     canActivateChild(

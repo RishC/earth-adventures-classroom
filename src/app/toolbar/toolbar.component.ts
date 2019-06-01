@@ -1,10 +1,8 @@
 import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Router, } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { UserService } from './../core/services/user.service';
 import { AuthService } from 'src/app/core/services/auth.service';
-import { CourseService } from '../dashboard/course.service';
+import { CoursesService } from '../courses/courses.service';
 import { Course } from '../core/data/course';
 
 @Component({
@@ -14,21 +12,14 @@ import { Course } from '../core/data/course';
 })
 export class ToolbarComponent implements OnInit {
   courses$: Observable<Course[]>;
-  isTeacher = false;
 
-  constructor(private userService: UserService,
+  constructor(
     private authService: AuthService,
     private router: Router,
-    private route: ActivatedRoute,
-    private courseService : CourseService) { }
+    private courseService : CoursesService) { }
 
   ngOnInit() {
-    this.userService.currentUser.subscribe(user => this.isTeacher = user.type === 'teacher');
-    this.courses$ = this.route.paramMap.pipe(
-      switchMap(params => {
-        return this.courseService.getCourses();
-      })
-    );
+    this.courses$ = this.courseService.getCourses();
   }
 
   logout() {

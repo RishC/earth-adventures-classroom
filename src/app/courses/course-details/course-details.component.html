@@ -1,0 +1,9 @@
+<div class="container">
+  <div *ngIf="course$ | async as course">
+    <br>
+    <h6>Course Description:</h6>
+    <p>{{ course.description }}</p>
+    <div id="deleteCourseBtn" *ngIf="isTeacher"><button class="btn btn-danger" (click)="deleteCourse(course.id)">Delete
+        This Course</button></div>
+  </div>
+</div>
