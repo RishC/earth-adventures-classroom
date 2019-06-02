@@ -16,14 +16,14 @@ const routes: Routes = [
   {
     path: 'courses/new', component: AddCourseComponent
   },
-  { path: 'coursecontent/:id/addcoursecontent', component: AddCourseContentComponent },
   {
     path: 'courses/:id', component: CoursesNavbarComponent,
     children: [
       { path: '', redirectTo: 'overview', pathMatch: 'full' },
       { path: 'overview', component: CourseDetailsComponent },
       { path: 'content', component: CourseContentComponent },
-      { path: 'grades', component: GradesComponent}
+      { path: 'grades', component: GradesComponent},
+	  { path: 'addcoursecontent', component: AddCourseContentComponent }
     ]
   }
 ];
