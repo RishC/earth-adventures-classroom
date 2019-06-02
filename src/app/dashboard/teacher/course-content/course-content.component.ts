@@ -15,6 +15,8 @@ import { Course } from '../../../core/data/course';
 })
 export class CourseContentComponent implements OnInit {
 	course$: Observable<Course>;
+	courses$: Observable<Course[]>;
+	selectedId: number;
 	
   constructor(
     private route: ActivatedRoute,
@@ -27,6 +29,13 @@ export class CourseContentComponent implements OnInit {
 	  this.course$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
         this.service.getCourse(params.get('id')))
+    );
+	this.courses$ = this.route.paramMap.pipe(
+      switchMap(params => {
+
+        this.selectedId = +params.get('id');
+        return this.service.getCourses();
+      })
     );
   }
 

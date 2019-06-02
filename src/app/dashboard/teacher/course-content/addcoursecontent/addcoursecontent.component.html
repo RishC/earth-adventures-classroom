@@ -1,0 +1,19 @@
+<div class="container" style="margin-top: 5em;"> <!-- need so toolbar isn't on top of anything -->
+ <h5>Add Course Content:</h5>
+
+ <div id="add-coursecontent" class="container" style="width: 50%;">
+  <form [formGroup]="addCourseContentForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="classNumber">Class Number</label>
+      <input type="text" class="form-control" id="courseNumber" placeholder="Enter Class Number"
+        formControlName="classNumber">
+    </div>
+    <div class="form-group">
+      <label for="classContent">Class Content</label>
+      <input type="text" class="form-control" id="classContent" placeholder="Enter Class Content" formControlName="classContent">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+ </div>
+ </div>
+ 

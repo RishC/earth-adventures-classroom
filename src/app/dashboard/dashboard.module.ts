@@ -9,6 +9,7 @@ import { TeacherComponent }  from './teacher/teacher.component';
 import { AddCourseComponent } from './teacher/addcourse/addcourse.component';
 import { DashboardRoutingModule } from './dashboard-route.module';
 import { CourseContentComponent } from './teacher/course-content/course-content.component';
+import { AddCourseContentComponent } from './teacher/course-content/addcoursecontent/addcoursecontent.component';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { CourseContentComponent } from './teacher/course-content/course-content.
     CourseDetailsComponent,
     TeacherComponent,
     AddCourseComponent,
-	CourseContentComponent
+	CourseContentComponent,
+	AddCourseContentComponent
   ]
 })
 export class DashboardModule {}

@@ -7,6 +7,7 @@ import { DashboardComponent } from './dashboard.component';
 import { CourseDetailsComponent } from './course-details/course-details.component';
 import { TeacherComponent } from './teacher/teacher.component';
 import { AddCourseComponent } from './teacher/addcourse/addcourse.component';
+import { AddCourseContentComponent } from './teacher/course-content/addcoursecontent/addcoursecontent.component';
 import { AuthGuard } from '../core/guards/auth.guard';
 import { StudentGuard } from '../core/guards/student.guard';
 import { TeacherGuard } from '../core/guards/teacher.guard';
@@ -19,6 +20,7 @@ const dashboardRoutes: Routes = [
   { path: 'dashboard/teacher', component: TeacherComponent, canActivate: [AuthGuard, TeacherGuard] },
   { path: 'dashboard/teacher/addcourse', component: AddCourseComponent, canActivate: [AuthGuard, TeacherGuard] },
   { path: 'coursecontent/:id', component: CourseContentComponent, canActivate: [AuthGuard] },
+  { path: 'coursecontent/:id/addcoursecontent', component: AddCourseContentComponent, canActivate: [AuthGuard] },
 
 ];
 

@@ -1,0 +1,5 @@
+.card {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  background-color: #007bff; /* default active color for bootstrap (same as navbar) */
+}
