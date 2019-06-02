@@ -7,6 +7,7 @@ import { TeacherGuard } from '../core/guards/teacher.guard';
 import { CourseContentComponent } from './course-content/course-content.component';
 import { CoursesNavbarComponent } from './courses-navbar/courses-navbar.component';
 import { GradesComponent } from './grades/grades.component';
+import { AddCourseContentComponent } from './course-content/addcoursecontent/addcoursecontent.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,7 @@ const routes: Routes = [
   {
     path: 'courses/new', component: AddCourseComponent
   },
+  { path: 'coursecontent/:id/addcoursecontent', component: AddCourseContentComponent },
   {
     path: 'courses/:id', component: CoursesNavbarComponent,
     children: [

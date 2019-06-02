@@ -8,6 +8,7 @@ import { AddCourseComponent } from './addcourse/addcourse.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CoursesNavbarComponent } from './courses-navbar/courses-navbar.component';
 import { GradesComponent } from './grades/grades.component';
+import { AddCourseContentComponent } from './course-content/addcoursecontent/addcoursecontent.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { GradesComponent } from './grades/grades.component';
     CourseContentComponent,
     AddCourseComponent,
     CoursesNavbarComponent,
-    GradesComponent
+    GradesComponent,
+	AddCourseContentComponent
   ],
   imports: [
     CommonModule,
