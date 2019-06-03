@@ -7,6 +7,7 @@ import { TeacherGuard } from '../core/guards/teacher.guard';
 import { CourseContentComponent } from './course-content/course-content.component';
 import { CoursesNavbarComponent } from './courses-navbar/courses-navbar.component';
 import { GradesComponent } from './grades/grades.component';
+import { AddCourseContentComponent } from './course-content/addcoursecontent/addcoursecontent.component';
 
 const routes: Routes = [
   {
@@ -21,7 +22,8 @@ const routes: Routes = [
       { path: '', redirectTo: 'overview', pathMatch: 'full' },
       { path: 'overview', component: CourseDetailsComponent },
       { path: 'content', component: CourseContentComponent },
-      { path: 'grades', component: GradesComponent}
+      { path: 'grades', component: GradesComponent},
+	  { path: 'addcoursecontent', component: AddCourseContentComponent }
     ]
   }
 ];

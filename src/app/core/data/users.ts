@@ -5,20 +5,28 @@ export const USERS: User[] = [
         username: 'student',
         password: '123',
         type: 'student',
-        courses: [
+		courses: [
             {
                 id: 1,
                 courseNumber: 'CSS 566',
                 name: 'Software Management',
                 description: 'Covers theories, principles, and practices that are designed to enable project managers and other related stakeholders as they assess, choose, and use appropriate frameworks, tools, techniques, and metrics to guide software projects toward successful completion or termination.',
-		content: 'Project planning, including topics such as ideation, market research, feasibility, requirements gathering, risk management, architectural design, budgeting and staffing, and top-level scheduling'
+				content : [
+							{ clas: 'Class1: Use theoretical frameworks to evaluate and assess the applicability of management practices and techniques to different types of software projects.' },
+							{ clas: 'Class2: Understand and use a set of tools and techniques for managing a software project,Leverage appropriate quality management theoretical frameworks and practices.' },
+							{ clas: 'Class3: Choosing and justify a particular set of metrics to use to assess the quality of a software project.' },							  
+						 ]
             },
             {
                 id: 2,
                 courseNumber: 'CSS 533',
                 name: 'Distributed Computing',
                 description: 'Builds on knowledge of advanced programming methodologies in distributed computing. Topics include message passing, indirect communication, remote method invocation, distributed objects, multi-tier server-side programming, peer-to-peer systems, distributed synchronization, distributed check-pointing, and replica management.',
-		content: 'Introduction to distributed computing models; Clock synchronization; Message Ordering and Group Commuication; Termination Detection Algorithms; Reasoning with Knowledge; Distributed Mutual Exclusion Algorithms; Deadlock Detection Algorithms; Global Predicate Detection; Distributed Shared Memory; Checkpointing and Rollback Recovery; Consensus and Agreement; Failure Detectors; Distributed file servers; Distributed programming environments: Communication primitives, selected case studies'
+				content: [
+							{ clas: 'Class1: Introduction to Distributed Computing.' },
+							{ clas: 'Class2: Learn about the MapReduce paradigm, and how it can be used to write distributed programs that analyze data represented as key-value pairs.' },
+							{ clas: 'Class3: Learn about client-server programming, and how distributed Java applications can communicate with each other using sockets.' },							  
+				 ]
             },
         ]
     },
@@ -33,14 +41,23 @@ export const USERS: User[] = [
                 courseNumber: 'CSS 566',
                 name: 'Software Management',
                 description: 'Covers theories, principles, and practices that are designed to enable project managers and other related stakeholders as they assess, choose, and use appropriate frameworks, tools, techniques, and metrics to guide software projects toward successful completion or termination.',
-		content: 'Project planning, including topics such as ideation, market research, feasibility, requirements gathering, risk management, architectural design, budgeting and staffing, and top-level scheduling'
+				content: [
+							{ clas: 'Class1: Use theoretical frameworks to evaluate and assess the applicability of management practices and techniques to different types of software projects' },
+							{ clas: 'Class2: Understand and use a set of tools and techniques for managing a software project,Leverage appropriate quality management theoretical frameworks and practices.' },
+							{ clas: 'Class3: Choosing and justify a particular set of metrics to use to assess the quality of a software project.' },							  						  
+				 ]
             },
             {
                 id: 2,
                 courseNumber: 'CSS 533',
                 name: 'Distributed Computing',
                 description: 'Builds on knowledge of advanced programming methodologies in distributed computing. Topics include message passing, indirect communication, remote method invocation, distributed objects, multi-tier server-side programming, peer-to-peer systems, distributed synchronization, distributed check-pointing, and replica management.',
-		content: 'Introduction to distributed computing models; Clock synchronization; Message Ordering and Group Commuication; Termination Detection Algorithms; Reasoning with Knowledge; Distributed Mutual Exclusion Algorithms; Deadlock Detection Algorithms; Global Predicate Detection; Distributed Shared Memory; Checkpointing and Rollback Recovery; Consensus and Agreement; Failure Detectors; Distributed file servers; Distributed programming environments: Communication primitives, selected case studies'
+				content: [
+							{ clas: 'Class1: Introduction to Distributed Computing.' },
+							{ clas: 'Class2: Learn about the MapReduce paradigm, and how it can be used to write distributed programs that analyze data represented as key-value pairs.' },
+							{ clas: 'Class3: Learn about client-server programming, and how distributed Java applications can communicate with each other using sockets.' },							  
+				 ]
+
             },
         ]
     }
