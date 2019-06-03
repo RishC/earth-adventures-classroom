@@ -8,6 +8,9 @@ import { CourseContentComponent } from './course-content/course-content.componen
 import { CoursesNavbarComponent } from './courses-navbar/courses-navbar.component';
 import { GradesComponent } from './grades/grades.component';
 import { AddCourseContentComponent } from './course-content/addcoursecontent/addcoursecontent.component';
+import { AssignmentsComponent } from './assignments/assignments.component';
+import { MidtermExamComponent } from './midterm-exam/midterm-exam.component';
+import { FinalExamComponent } from './final-exam/final-exam.component';
 
 const routes: Routes = [
   {
@@ -22,8 +25,11 @@ const routes: Routes = [
       { path: '', redirectTo: 'overview', pathMatch: 'full' },
       { path: 'overview', component: CourseDetailsComponent },
       { path: 'content', component: CourseContentComponent },
-      { path: 'grades', component: GradesComponent},
-	  { path: 'addcoursecontent', component: AddCourseContentComponent }
+	    { path: 'addcoursecontent', component: AddCourseContentComponent },
+      { path: 'assignments', component: AssignmentsComponent },
+      { path: 'midterm-exam', component: MidtermExamComponent },
+      { path: 'final-exam', component: FinalExamComponent },
+      { path: 'grades', component: GradesComponent }
     ]
   }
 ];
