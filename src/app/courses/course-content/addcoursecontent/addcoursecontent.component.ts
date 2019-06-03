@@ -8,6 +8,8 @@ import { map } from 'rxjs/operators';
 
 import { CoursesService } from '../../courses.service';
 import { Course } from 'src/app/core/data/course';
+import { Content } from 'src/app/core/data/content';
+import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
   selector: 'app-addcoursecontent',
@@ -20,7 +22,6 @@ export class AddCourseContentComponent implements OnInit{
 	selectedId: number;
 
   addCourseContentForm = this.fb.group({
-    classNumber: ['', Validators.required],
     classContent: ['', Validators.required]
   });
 
@@ -28,23 +29,23 @@ export class AddCourseContentComponent implements OnInit{
     private fb: FormBuilder,
     private courseService: CoursesService,
     private router: Router,
-	private route: ActivatedRoute
+	private route: ActivatedRoute,
+	private userService: UserService
   ) {}
 
   ngOnInit() {
-	this.course$ = this.route.paramMap.pipe(
+	this.course$ = this.route.parent.paramMap.pipe(
       switchMap((params: ParamMap) =>
         this.courseService.getCourse(params.get('id')))
     );
-	this.courses$ = this.route.paramMap.pipe(
-      switchMap(params => {
-
-    this.selectedId = +params.get('id');
-        return this.courseService.getCourses();
-      })
-    )
   }
 
-  onSubmit() {
+  onSubmit(id: number) {
+	  
+	var course = this.userService.currentUserSubject.getValue().courses[id-1];
+ 	let con = new Content();
+	con.clas = "Class"+(course.content.length+1)+": "+this.addCourseContentForm.value["classContent"];
+	course.content.push(con);
+	this.router.navigate(['/courses', id, 'content']);
   }
 }

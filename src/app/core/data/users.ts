@@ -23,9 +23,9 @@ export const USERS: User[] = [
                 name: 'Distributed Computing',
                 description: 'Builds on knowledge of advanced programming methodologies in distributed computing. Topics include message passing, indirect communication, remote method invocation, distributed objects, multi-tier server-side programming, peer-to-peer systems, distributed synchronization, distributed check-pointing, and replica management.',
 				content: [
-							{ clas: 'Class1: Introduction to Distributed Computing' },
-							{ clas: 'Class2: Socket Programming and Android' },
-							{ clas: 'Class3: Failure Detection and recovery' },							  
+							{ clas: 'Class1: Introduction to Distributed Computing.' },
+							{ clas: 'Class2: Learn about the MapReduce paradigm, and how it can be used to write distributed programs that analyze data represented as key-value pairs.' },
+							{ clas: 'Class3: Learn about client-server programming, and how distributed Java applications can communicate with each other using sockets.' },							  
 				 ]
             },
         ]
@@ -53,9 +53,9 @@ export const USERS: User[] = [
                 name: 'Distributed Computing',
                 description: 'Builds on knowledge of advanced programming methodologies in distributed computing. Topics include message passing, indirect communication, remote method invocation, distributed objects, multi-tier server-side programming, peer-to-peer systems, distributed synchronization, distributed check-pointing, and replica management.',
 				content: [
-							{ clas: 'Class1: Introduction to Distributed Computing' },
-							{ clas: 'Class2: Socket Programming and Android' },
-							{ clas: 'Class3: Failure Detection and recovery' },							  
+							{ clas: 'Class1: Introduction to Distributed Computing.' },
+							{ clas: 'Class2: Learn about the MapReduce paradigm, and how it can be used to write distributed programs that analyze data represented as key-value pairs.' },
+							{ clas: 'Class3: Learn about client-server programming, and how distributed Java applications can communicate with each other using sockets.' },							  
 				 ]
 
             },
