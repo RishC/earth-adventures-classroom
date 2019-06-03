@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { FullCalendarModule } from '@fullcalendar/angular';
 import { CoreModule } from './core/core.module';
 import { AuthModule } from './auth/auth.module';
 import { CoursesModule } from './courses/courses.module';
@@ -20,7 +21,8 @@ import { CoursesModule } from './courses/courses.module';
     DashboardModule,
     CoreModule,
     AuthModule,
-    CoursesModule
+    CoursesModule,
+    FullCalendarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,8 +2,9 @@ import { NgModule }       from '@angular/core';
 import { CommonModule }   from '@angular/common';
 import { FormsModule }    from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { FullCalendarModule } from '@fullcalendar/angular';
 import { CourseListComponent }    from './course-list/course-list.component';
+import { CalendarComponent }    from './calendar/calendar.component';
 import { DashboardRoutingModule } from './dashboard-route.module';
 import { DashboardComponent } from './dashboard.component';
 
@@ -12,11 +13,13 @@ import { DashboardComponent } from './dashboard.component';
     CommonModule,
     FormsModule,
     DashboardRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FullCalendarModule
   ],
   declarations: [
     CourseListComponent,
-    DashboardComponent
+    DashboardComponent,
+    CalendarComponent
   ]
 })
 export class DashboardModule {}

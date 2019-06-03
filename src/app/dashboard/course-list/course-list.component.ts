@@ -1,4 +1,3 @@
-
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
@@ -22,7 +21,7 @@ export class CourseListComponent implements OnInit {
     private route: ActivatedRoute
   ) { }
 
-  ngOnInit() {   
+  ngOnInit() {
     this.courses$ = this.route.paramMap.pipe(
       switchMap(params => {
 

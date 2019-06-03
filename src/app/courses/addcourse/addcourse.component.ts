@@ -34,7 +34,7 @@ export class AddCourseComponent implements OnInit{
     var count = 0;
 
     courses.subscribe(val => count = val.length);
-    
+
     let course = new Course();
     course.id = count + 1;
     course.courseNumber = this.addCourseForm.value["courseNumber"];

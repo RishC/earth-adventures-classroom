@@ -1,0 +1,26 @@
+<div class="app-calendar container">
+  <full-calendar *ngIf="options"
+        #fullcalendar
+        defaultView="dayGridWeek"
+        [editable]="true"
+        [header]="options.header"
+        [plugins]="options.plugins"
+        [weekends]="calendarWeekends"
+        [events]="calendarEvents">
+  </full-calendar>
+</div>
+<script type="text/jquery">
+  document.addEventListener('DOMContentLoaded', function() {
+  var calendarEl = document.getElementById('calendar');
+
+  var calendar = new FullCalendar.Calendar(calendarEl, {
+    plugins: [ 'dayGrid' ],
+    timeZone: 'UTC',
+    defaultView: 'dayGridMonth',
+    height: 500,
+    events: 'https://fullcalendar.io/demo-events.json'
+  });
+
+  calendar.render();
+  });
+</script>
