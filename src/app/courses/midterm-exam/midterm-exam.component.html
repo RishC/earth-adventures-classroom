@@ -1,0 +1,64 @@
+<br>
+<h5>Midterm</h5>
+<br>
+<div id="midterm-exam-1" class="container" style="width: 80%;" *ngIf="isSM">
+  <form [formGroup]="midtermExam" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      1. Code refactoring is easier using test driven development.<br>
+      <input type="radio" name="question-1" value="true"> True<br>
+      <input type="radio" name="question-1" value="false"> False
+    </div>
+    <div class="form-group">
+      2. The Product backlog shold contain only user stories.<br>
+      <input type="radio" name="question-2" value="true"> True<br>
+      <input type="radio" name="question-2" value="false"> False
+    </div>
+    <div class="form-group">
+      3. List the major events prescribed by Scrum.
+      <textarea type="text" class="form-control" id="question-3"  formControlName="question-3" rows="5"></textarea>
+    </div>
+    <div class="form-group">
+      4. Using LeSS, the Scrum Master may be a part time role.<br>
+      <input type="radio" name="question-4" value="true"> True<br>
+      <input type="radio" name="question-4" value="false"> False
+    </div>
+    <div class="form-group">
+      5. The Agile Manifesto provides a detailed framework for software development.<br>
+      <input type="radio" name="question-5" value="true"> True<br>
+      <input type="radio" name="question-5" value="false"> False
+    </div>
+    <div class="form-submit">
+      <button (click)="onSubmit()" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+  </div>
+  <div id="midterm-exam-2" class="container" style="width: 80%;" *ngIf="!isSM">
+    <form [formGroup]="midtermExam" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        1. It is easy to implement object serialization/deserialization in C++ instead of Java.<br>
+        <input type="radio" name="question-1" value="true"> True<br>
+        <input type="radio" name="question-1" value="false"> False
+      </div>
+      <div class="form-group">
+        2. Applets benefit managing a session with its code base.<br>
+        <input type="radio" name="question-2" value="true"> True<br>
+        <input type="radio" name="question-2" value="false"> False
+      </div>
+      <div class="form-group">
+        3. Provide software technologies relared to SSI function calls.<br>
+        <textarea type="text" class="form-control" id="question-3"  formControlName="question-3" rows="5"></textarea>
+      </div>
+      <div class="form-group">
+        4. Applets benefit working as a text-base chat client.<br>
+        <input type="radio" name="question-4" value="true"> True<br>
+        <input type="radio" name="question-4" value="false"> False
+      </div>
+      <div class="form-group">
+        5. SSI is a key for distributed computing. Provide classification of SSI timing.
+        <textarea type="text" class="form-control" id="question-5"  formControlName="question-5" rows="5"></textarea>
+      </div>
+      <div class="form-submit">
+        <button (click)="onSubmit()" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+   </div>

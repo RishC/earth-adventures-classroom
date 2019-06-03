@@ -1,0 +1,14 @@
+h5 {
+    text-align: center;
+}
+
+.form-group {
+    padding-inline: 5pt;
+    padding-block: 10%;
+}
+
+.form-submit {
+    box-align: center;
+    align-self: center;
+    padding-left: 45%;
+}
