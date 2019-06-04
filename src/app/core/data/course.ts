@@ -7,5 +7,6 @@ export class Course {
   name: string;
   description: string;
   content: Content[];
+  overallGrade: number;
   assignments: Assignment[];
 }

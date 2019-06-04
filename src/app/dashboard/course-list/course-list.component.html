@@ -1,7 +1,7 @@
 <h2>Courses</h2>
 <div class="courses container">
   <h5 id="curEnrolled">Currently Enrolled Courses:</h5>
-  <div class="showGradesCheckbox" *ngIf="isTeacher">
+  <div class="showGradesCheckbox" *ngIf="!isTeacher">
     <label class="form-check-label" for="gradesCheck" style="margin-right: 6px;">Show Grades</label>
     <input type="checkbox" id="gradesCheck" [(ngModel)]="checked">
   </div>
@@ -13,8 +13,8 @@
           <div class="card btn btn-primary h-100">
             <div class="card-body">
               <h5 class="card-title">{{ course.courseNumber }}: {{course.name }}</h5>
-              <div class="courseGrade" *ngIf="isTeacher">
-                <h5 *ngIf="checked">%</h5>
+              <div class="courseGrade" *ngIf="!isTeacher">
+                <h5 *ngIf="checked">{{ course.overallGrade }}%</h5>
               </div>
             </div>
           </div>

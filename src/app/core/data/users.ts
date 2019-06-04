@@ -10,6 +10,7 @@ export const USERS: User[] = [
                 id: 1,
                 courseNumber: 'CSS 566',
                 name: 'Software Management',
+                overallGrade: 100.0,
                 description: 'Covers theories, principles, and practices that are designed to enable project managers and other related stakeholders as they assess, choose, and use appropriate frameworks, tools, techniques, and metrics to guide software projects toward successful completion or termination.',
 				content : [
 							{ clas: 'Class1: Use theoretical frameworks to evaluate and assess the applicability of management practices and techniques to different types of software projects.' },
@@ -31,6 +32,7 @@ export const USERS: User[] = [
                 id: 2,
                 courseNumber: 'CSS 533',
                 name: 'Distributed Computing',
+                overallGrade: 100.0,
                 description: 'Builds on knowledge of advanced programming methodologies in distributed computing. Topics include message passing, indirect communication, remote method invocation, distributed objects, multi-tier server-side programming, peer-to-peer systems, distributed synchronization, distributed check-pointing, and replica management.',
 				content: [
 							{ clas: 'Class1: Introduction to Distributed Computing.' },
@@ -60,6 +62,7 @@ export const USERS: User[] = [
                 id: 1,
                 courseNumber: 'CSS 566',
                 name: 'Software Management',
+                overallGrade: -1,
                 description: 'Covers theories, principles, and practices that are designed to enable project managers and other related stakeholders as they assess, choose, and use appropriate frameworks, tools, techniques, and metrics to guide software projects toward successful completion or termination.',
 				content: [
 							{ clas: 'Class1: Use theoretical frameworks to evaluate and assess the applicability of management practices and techniques to different types of software projects' },
@@ -81,6 +84,7 @@ export const USERS: User[] = [
                 id: 2,
                 courseNumber: 'CSS 533',
                 name: 'Distributed Computing',
+                overallGrade: -1,
                 description: 'Builds on knowledge of advanced programming methodologies in distributed computing. Topics include message passing, indirect communication, remote method invocation, distributed objects, multi-tier server-side programming, peer-to-peer systems, distributed synchronization, distributed check-pointing, and replica management.',
 				content: [
 							{ clas: 'Class1: Introduction to Distributed Computing.' },
