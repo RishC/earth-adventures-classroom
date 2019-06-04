@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { CoursesService } from '../courses.service';
 import { Course } from '../../core/data/course';
 import { UserService } from '../../core/services/user.service';
+import { LocalStorageService } from './../../core/services/local-storage.service';
 
 @Component({
   selector: 'app-final-exam',
@@ -21,7 +22,8 @@ export class FinalExamComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private service: CoursesService,
-    private userService: UserService
+    private userService: UserService,
+    private localStorageService: LocalStorageService
   ) { }
 
   ngOnInit() {
@@ -41,6 +43,8 @@ export class FinalExamComponent implements OnInit {
 
   onSubmit() {
     if (confirm("Are you sure you want to submit this exam, answers cannot be changed later?")){
+      var value = Math.random() * (5 - 0) + 1;
+      this.localStorageService.saveFinal(value+"");
       this.router.navigate(['/courses/'+this.courseid+'/assignments']);
     }
   }
