@@ -1,4 +1,5 @@
 import { Content } from './content';
+import { Assignment } from './assignment';
 
 export class Course {
   id: number;
@@ -6,4 +7,5 @@ export class Course {
   name: string;
   description: string;
   content: Content[];
+  assignments: Assignment[];
 }

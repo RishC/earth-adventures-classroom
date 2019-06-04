@@ -7,6 +7,12 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 
+import { Course } from '../../core/data/course';
+import { Assignment } from '../../core/data/assignment';
+import { UserService } from '../../core/services/user.service';
+import { CoursesService } from '../../courses/courses.service';
+import { ActivatedRoute, NavigationEnd } from '@angular/router';
+
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
@@ -21,9 +27,9 @@ export class CalendarComponent implements OnInit {
 
   calendarVisible = true;
   calendarWeekends = true;
-  calendarEvents: EventInput[] = [
-    { title: 'Event Now', start: new Date() }
-  ];
+  // update all of the upcomming events (assignments) to populate calendar with
+  calendarEvents: EventInput[] = this.getCalendarEvents();
+
 
   toggleVisible() {
     this.calendarVisible = !this.calendarVisible;
@@ -38,6 +44,35 @@ export class CalendarComponent implements OnInit {
     calendarApi.gotoDate('2000-01-01'); // call a method on the Calendar object
   }
 
+  // function to get all of the assignments (names, dates, and times), used to
+  // populate the calendar
+  getCalendarEvents()  { // : EventInput[]
+    var allCourses;
+    this.courseService.getCourses().subscribe( courses => {
+      allCourses = courses as Course[];
+    });
+
+    var events = [];
+    for (let i = 0; i < allCourses.length; i++) {
+      var curAssignments = [];
+      curAssignments.push(allCourses[i].assignments);
+      var courseID = allCourses[i].id;
+      for (let j = 0; j < curAssignments.length; j++) {
+        var assignmentEvents = curAssignments[j].map((assignment) => {
+          console.log(this.route.url);
+          var curURL = location.origin + '/courses/' + courseID + '/assignments';
+          console.log(curURL);
+          return { title: assignment.name , start: new Date(assignment.dueDate), url : curURL };
+        });
+        console.log(assignmentEvents);
+        for (let k = 0; k < assignmentEvents.length; k++) {
+          events.push(assignmentEvents[k]);
+        }
+      }
+    }
+    return events;
+  }
+
   // handleDateClick(arg) {
   //   if (confirm('Would you like to add an event to ' + arg.dateStr + ' ?')) {
   //     this.calendarEvents = this.calendarEvents.concat({ // add new event data. must create new array
@@ -48,10 +83,13 @@ export class CalendarComponent implements OnInit {
   //   }
   // }
 
-  constructor() {
-  }
+  constructor( private courseService: CoursesService,
+               private userService: UserService,
+               private route: ActivatedRoute
+            ) { }
 
   ngOnInit() {
+
     this.options = {
       editable: true,
       height: 300,     // TODO: If anyone can figure out how to change this height that would be super awesome!!
