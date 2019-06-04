@@ -18,4 +18,21 @@ export class LocalStorageService {
   destroyUserId() {
     window.localStorage.removeItem('userId');
   }
+
+  saveMidterm(value: string){
+    window.localStorage.setItem("midterm", value);
+  }
+   getMidterm(){
+   return window.localStorage.getItem("midterm");
+  }
+
+  saveFinal(value: string){
+    window.localStorage.setItem("final", value);
+  }
+
+   getFinal(){
+   return window.localStorage.getItem("final");
+  }
+
+
 }
