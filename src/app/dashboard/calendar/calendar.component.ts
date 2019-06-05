@@ -12,7 +12,6 @@ import { Assignment } from '../../core/data/assignment';
 import { UserService } from '../../core/services/user.service';
 import { CoursesService } from '../../courses/courses.service';
 import { ActivatedRoute, NavigationEnd } from '@angular/router';
-import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-calendar',
