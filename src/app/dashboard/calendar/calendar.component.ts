@@ -46,32 +46,6 @@ export class CalendarComponent implements OnInit {
 
   // function to get all of the assignments (names, dates, and times), used to
   // populate the calendar
-  // getCalendarEvents()  { // : EventInput[]
-  //   var allCourses;
-  //   this.courseService.getCourses().pipe( tap(courses) => {
-  //     allCourses = courses as Course[];
-  //   });
-
-  //   var events = [];
-  //   for (let i = 0; i < allCourses.length; i++) {
-  //     var curAssignments = [];
-  //     curAssignments.push(allCourses[i].assignments);
-  //     var courseID = allCourses[i].id;
-  //     for (let j = 0; j < curAssignments.length; j++) {
-  //       var assignmentEvents = curAssignments[j].map((assignment) => {
-  //         console.log(this.route.url);
-  //         var curURL = location.origin + '/courses/' + courseID + '/assignments';
-  //         console.log(curURL);
-  //         return { title: assignment.name , start: new Date(assignment.dueDate), url : curURL };
-  //       });
-  //       console.log(assignmentEvents);
-  //       for (let k = 0; k < assignmentEvents.length; k++) {
-  //         events.push(assignmentEvents[k]);
-  //       }
-  //     }
-  //   }
-  //   return events;
-  // }
 
   // handleDateClick(arg) {
   //   if (confirm('Would you like to add an event to ' + arg.dateStr + ' ?')) {
