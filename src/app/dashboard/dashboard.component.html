@@ -1,10 +1,14 @@
 <app-course-list></app-course-list>
+
 <div *ngIf="isTeacher">
   <nav id="navbar-scrolling" class="align-self-center">
     <ul class="nav nav-fill nav-pills justify-content-center">
-      <li class="nav-item"><a class="btn btn-primary" routerLink='/courses/new' routerLinkActive="active">Add New
+      <li class="nav-item"><a class="btn btn-success" routerLink='/courses/new' routerLinkActive="active">Add New
           Course</a></li>
     </ul>
     <div class="page-div"></div>
   </nav>
 </div>
+<app-calendar></app-calendar>
+
+<br><br><br><br>

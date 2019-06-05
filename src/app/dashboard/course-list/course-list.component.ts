@@ -1,4 +1,3 @@
-
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
@@ -16,13 +15,16 @@ import { UserService } from 'src/app/core/services/user.service';
 export class CourseListComponent implements OnInit {
   courses$: Observable<Course[]>;
   selectedId: number;
+  isTeacher;
 
   constructor(
     private service: CoursesService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private userService: UserService
   ) { }
 
-  ngOnInit() {   
+  ngOnInit() {
+    this.userService.currentUser.subscribe(user => this.isTeacher = user.type === 'teacher');
     this.courses$ = this.route.paramMap.pipe(
       switchMap(params => {
 

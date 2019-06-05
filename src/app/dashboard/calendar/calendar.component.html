@@ -1,0 +1,11 @@
+<div class="app-calendar container">
+  <full-calendar *ngIf="options"
+        #fullcalendar
+        defaultView="dayGridWeek"
+        [editable]="true"
+        [header]="options.header"
+        [plugins]="options.plugins"
+        [weekends]="calendarWeekends"
+        [events]="calendarEvents">
+  </full-calendar>
+</div>

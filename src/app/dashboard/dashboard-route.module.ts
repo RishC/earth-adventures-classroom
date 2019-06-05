@@ -3,12 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AuthGuard } from '../core/guards/auth.guard';
 import { DashboardComponent } from './dashboard.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 const dashboardRoutes: Routes = [
   // { path: 'courses', redirectTo: '/dashboard' },
   // { path: 'course/:id', redirectTo: '/courses/:id', canActivate: [AuthGuard] },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
-
+  { path: 'calendar', component: CalendarComponent}
 
 ];
 
@@ -21,5 +22,3 @@ const dashboardRoutes: Routes = [
   ]
 })
 export class DashboardRoutingModule { }
-
-	
