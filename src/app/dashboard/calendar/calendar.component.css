@@ -1,3 +1,9 @@
 .app-calendar {
   margin-top: 5em;
+  width: 600px !important;
+}
+
+.temp {
+  height: 100px;
+  width: 100px;
 }
