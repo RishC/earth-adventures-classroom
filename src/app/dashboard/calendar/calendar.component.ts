@@ -28,7 +28,7 @@ export class CalendarComponent implements OnInit {
   calendarVisible = true;
   calendarWeekends = true;
   // update all of the upcomming events (assignments) to populate calendar with
-  calendarEvents: EventInput[] = this.getCalendarEvents();
+  calendarEvents: EventInput[];
 
 
   toggleVisible() {
@@ -46,32 +46,6 @@ export class CalendarComponent implements OnInit {
 
   // function to get all of the assignments (names, dates, and times), used to
   // populate the calendar
-  getCalendarEvents()  { // : EventInput[]
-    var allCourses;
-    this.courseService.getCourses().subscribe( courses => {
-      allCourses = courses as Course[];
-    });
-
-    var events = [];
-    for (let i = 0; i < allCourses.length; i++) {
-      var curAssignments = [];
-      curAssignments.push(allCourses[i].assignments);
-      var courseID = allCourses[i].id;
-      for (let j = 0; j < curAssignments.length; j++) {
-        var assignmentEvents = curAssignments[j].map((assignment) => {
-          console.log(this.route.url);
-          var curURL = location.origin + '/earth-adventures-classroom/courses/' + courseID + '/assignments';
-          console.log(curURL);
-          return { title: assignment.name , start: new Date(assignment.dueDate), url : curURL };
-        });
-        console.log(assignmentEvents);
-        for (let k = 0; k < assignmentEvents.length; k++) {
-          events.push(assignmentEvents[k]);
-        }
-      }
-    }
-    return events;
-  }
 
   // handleDateClick(arg) {
   //   if (confirm('Would you like to add an event to ' + arg.dateStr + ' ?')) {
@@ -89,10 +63,29 @@ export class CalendarComponent implements OnInit {
             ) { }
 
   ngOnInit() {
-
+    this.courseService.getCourses().subscribe((courses) => {
+      let allCourses = courses as Course[];
+      let events = [];
+      for (let i = 0; i < allCourses.length; i++) {
+        let curAssignments = [];
+        curAssignments.push(allCourses[i].assignments);
+        let courseID = allCourses[i].id;
+        for (let j = 0; j < curAssignments.length; j++) {
+          if (curAssignments[j]) {
+            var assignmentEvents = curAssignments[j].map((assignment) => {
+              var curURL = location.origin + '/courses/' + courseID + '/assignments';
+              return { title: assignment.name , start: new Date(assignment.dueDate), url : curURL };
+            });
+            for (let k = 0; k < assignmentEvents.length; k++) {
+              events.push(assignmentEvents[k]);
+            }
+          }
+        }
+      }
+      this.calendarEvents = events;
+    });
     this.options = {
       editable: true,
-      height: 300,     // TODO: If anyone can figure out how to change this height that would be super awesome!!
       customButtons: {
         myCustomButton: {
           text: 'custom!',
