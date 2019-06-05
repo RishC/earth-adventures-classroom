@@ -60,7 +60,7 @@ export class CalendarComponent implements OnInit {
       for (let j = 0; j < curAssignments.length; j++) {
         var assignmentEvents = curAssignments[j].map((assignment) => {
           console.log(this.route.url);
-          var curURL = location.origin + '/courses/' + courseID + '/assignments';
+          var curURL = location.origin + '/earth-adventures-classroom/courses/' + courseID + '/assignments';
           console.log(curURL);
           return { title: assignment.name , start: new Date(assignment.dueDate), url : curURL };
         });
