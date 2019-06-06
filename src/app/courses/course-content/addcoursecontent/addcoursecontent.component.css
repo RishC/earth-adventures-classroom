@@ -1,3 +1,8 @@
-#add-coursecontent {
-  margin-top: 20%;
+h5 {
+    text-align: center;
+}
+
+.addCourseContentForm {
+    padding-inline: 5pt;
+    padding-block: 10%;
 }
